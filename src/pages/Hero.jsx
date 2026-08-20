@@ -1,7 +1,13 @@
+import { Link } from 'react-router-dom'
+
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-circle"></div>
+      <div className="hero-logo-wrap">
+        <div className="hero-logo-ring"></div>
+        <img src="/images/logo.jpeg" alt="MAS Milk Society" className="hero-logo-img" />
+      </div>
       <div className="hero-content">
         <div className="hero-eyebrow">Established Cooperative Society</div>
         <div className="hero-welcome">MAS Milk</div>
@@ -12,8 +18,8 @@ export default function Hero() {
           MAS Milk Society brings you fresh, wholesome milk sourced directly from trusted local dairy farmers in Marudhadu, Tamil Nadu — delivered with care and a commitment to purity.
         </p>
         <div className="hero-actions">
-          <a href="#products" className="btn-primary">Our Products</a>
-          <a href="#contact" className="btn-ghost">Get in Touch</a>
+          <Link to="/products" className="btn-primary">Our Products</Link>
+          <Link to="/contact" className="btn-ghost">Get in Touch</Link>
         </div>
       </div>
       <div className="hero-stats">

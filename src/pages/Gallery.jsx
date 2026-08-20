@@ -1,10 +1,13 @@
 const tiles = [
-  { emoji: '🐄', label: 'Dairy Cattle', tall: true },
-  { emoji: '🥛', label: 'Milk Collection' },
-  { emoji: '🚜', label: 'Farm Operations' },
-  { emoji: '👨‍🌾', label: 'Our Farmers' },
-  { emoji: '🏚️', label: 'Society Building', tall: true },
-  { emoji: '🧪', label: 'Quality Testing' },
+  { src: '/images/banner.jpeg', label: 'MAS Milk Society', tall: true },
+  { src: '/images/Society Building.jpeg', label: 'Society Building', tall: true },
+  { src: '/images/milk cuttle.jpeg', label: 'Milk Collection' },
+  { src: '/images/service.jpeg', label: 'Our Service' },
+  { src: '/images/milk.jpg', label: 'Fresh Milk' },
+  { src: '/images/ghee.jpg', label: 'Pure Ghee' },
+  { src: '/images/curd.jpg', label: 'Fresh Curd' },
+  { src: '/images/milk-goa.jpg', label: 'Milk Goa' },
+  { src: '/images/country-sugar.jpg', label: 'Country Sugar' },
 ]
 
 export default function Gallery() {
@@ -16,7 +19,7 @@ export default function Gallery() {
       <div className="gallery-grid">
         {tiles.map((t) => (
           <div className={`gallery-tile fade-in${t.tall ? ' tall' : ''}`} key={t.label}>
-            <span className="g-emoji">{t.emoji}</span>
+            <img src={t.src} alt={t.label} className="g-img" />
             <span className="g-label">{t.label}</span>
           </div>
         ))}

@@ -1,21 +1,21 @@
 import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
+import BottomNav from './pages/BottomNav'
+import ScrollToTop from './components/ScrollToTop'
 
-import Hero from './pages/Hero'
-import About from './pages/About'
-import Products from './pages/Products'
-import WhyUs from './pages/WhyUs'
-import Hours from './pages/Hours'
+import Home from './pages/Home'
+import ProductsPage from './pages/ProductsPage'
+import LocationPage from './pages/LocationPage'
+import ContactPage from './pages/ContactPage'
 import Gallery from './pages/Gallery'
-import Testimonials from './pages/Testimonials'
 import FAQ from './pages/FAQ'
-import Location from './pages/Location'
-import Delivery from './pages/Delivery'
-import Contact from './pages/Contact'
 
-export default function App() {
+function FadeInObserver() {
+  const { pathname } = useLocation()
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,24 +27,28 @@ export default function App() {
     )
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname])
 
+  return null
+}
+
+export default function App() {
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
+      <FadeInObserver />
       <Navbar />
-      <Hero />
-      <About />
-      <Products />
-      <WhyUs />
-      <Hours />
-      <Gallery />
-      <Testimonials />
-      <FAQ />
-      <Location />
-      <Delivery />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/location" element={<LocationPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/faq" element={<FAQ />} />
+      </Routes>
       <Footer />
+      <BottomNav />
       <WhatsAppFloat />
-    </>
+    </BrowserRouter>
   )
 }

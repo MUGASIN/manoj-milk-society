@@ -12,7 +12,7 @@ export default function Hours() {
         <div className="hours-text fade-in">
           <p className="section-label" style={{ color: 'var(--green-light)' }}>Operating Hours</p>
           <h2 style={{ color: 'var(--white)' }}>When We're Open</h2>
-          <p style={{ color: 'var(--on-dark)' }}>Our collection and distribution timings are set to bring you the freshest milk possible, twice a day.</p>
+          <p style={{ color: '#A8C5B5' }}>Our collection and distribution timings are set to bring you the freshest milk possible, twice a day.</p>
         </div>
         <div className="hours-table fade-in">
           {hours.map((h) => (
